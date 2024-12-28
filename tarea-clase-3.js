@@ -20,51 +20,64 @@
 // Si no entendemos la respuesta, le decimos que no entendimos la respuesta.
 // Punto bonus: SI, NO, Si, No, si, no.
 
-//Tarea 1
+
+//Solución 1
+let nombreUsuario = (prompt('¿cuál es tu nombre?') || '').toLowerCase().trim();
+const MI_NOMBRE = 'pablo';
 
 
-
-let preguntarNombre = (prompt('¿cuál es tu nombre?') || '').toLocaleLowerCase().trim();
-const MY_NAME = 'pablo';
-
-
-if (preguntarNombre === MY_NAME){
-    console.log('Hola Tocayo! yo también me llamo Pablo')
+if (nombreUsuario === MI_NOMBRE){
+    console.log('Hola tocayo! yo también me llamo Pablo')
 }
-else if(preguntarNombre == 'sol'){
-    console.log('hola ' + preguntarNombre + ' te llamas igual que el Sol')
+else if(nombreUsuario === 'laura'){
+    console.log('hola ' + nombreUsuario + ' te llamas igual que mi hermana')
 }
-else if(preguntarNombre.length === 0){
+else if(nombreUsuario.length === 0){
     console.log('No ingresaste ningún nombre')
 }
 else{
-    console.log('hola ' + preguntarNombre)
+    console.log('hola ' + nombreUsuario[0].toUpperCase() + nombreUsuario.substring(1))
 };
 
-/*let miEdad = 37
-let edadUsuario = prompt('¿cuál es tu edad?');
+//Solución 2
+const MI_EDAD = 37
+const EDAD_USUARIO = Number(prompt('¿cuál es tu edad?'));
 
-f (edadUsuario == 37){
-    alert('Tenemos la misma edad')}
-else if(edadUsuario > 37){
-    alert('sos mayor que yo')
+if(EDAD_USUARIO === 0){
+    alert('Ingresá un número entero mayor a 0');
+}else if(EDAD_USUARIO === MI_EDAD){
+    alert('Tenemos la misma edad');
+}else if(EDAD_USUARIO > MI_EDAD){
+    alert('Sos mayor que yo');
+}else if(EDAD_USUARIO < MI_EDAD){
+    alert('Sos menor que yo')    
+}else{
+     alert('No entendí la respuesta. Ingresá un número entero mayor a 0')
+};
+
+
+//Solución 3
+const EDAD_PARA_ENTRAR = 18;
+const RESPUESTA_SI = 'si';
+const RESPUESTA_SI_TILDADA = 'sí'
+const RESPUESTA_NO = 'no';
+
+
+
+let usuarioConDocumento = (prompt('¿Tenés documento?') || '').toLocaleLowerCase();
+
+if(usuarioConDocumento == RESPUESTA_SI_TILDADA){
+    usuarioConDocumento = RESPUESTA_SI
 }
-else{
-     alert('sos menor que yo')
-};
-*/
 
-let preguntarPorDocumento = prompt('¿Tenés documento?');
-if(preguntarPorDocumento == 'no')
-    alert('Sin documento no podes pasar')
-if(preguntarPorDocumento !== 'si')
+if(usuarioConDocumento === RESPUESTA_NO){
+    alert('Sin documento no podes pasar');
+    
+}else if(usuarioConDocumento !== RESPUESTA_SI){
     alert('No entendi la respuesta, responder si o no')
-if(preguntarPorDocumento == 'si')
-{ 
-let edadUsuario = prompt('¿cuál es tu edad?')
-};
+}
 
-if (edadUsuario > 17)
-    alert('podes pasar')
-else alert('no podes pasar')
+if (EDAD_USUARIO >= EDAD_PARA_ENTRAR && usuarioConDocumento === RESPUESTA_SI)
+    alert('Podes pasar')
+else alert('No podes pasar')
 
